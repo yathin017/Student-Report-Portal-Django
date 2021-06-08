@@ -1,9 +1,9 @@
-asgiref @ file:///tmp/build/80754af9/asgiref_1617740417847/work
+asgiref==3.3.4
 backcall==0.2.0
 certifi==2020.12.5
 colorama==0.4.4
 decorator==5.0.7
-Django @ file:///tmp/build/80754af9/django_1620913015185/work
+Django==3.2.3
 django-crispy-forms==1.11.2
 gunicorn==20.1.0
 ipykernel==5.5.3
@@ -15,14 +15,14 @@ jupyter-core==4.7.1
 parso==0.8.2
 pickleshare==0.7.5
 prompt-toolkit==3.0.18
-psycopg2 @ file:///C:/ci/psycopg2_1612298766762/work
+psycopg2==2.8.6
 Pygments==2.8.1
 python-dateutil==2.8.1
-pytz @ file:///tmp/build/80754af9/pytz_1612215392582/work
+pytz==2021.1
 pywin32==300
 pyzmq==22.0.3
 six==1.15.0
-sqlparse @ file:///tmp/build/80754af9/sqlparse_1602184451250/work
+sqlparse==0.4.1
 tornado==6.1
 traitlets==5.0.5
 wcwidth==0.2.5

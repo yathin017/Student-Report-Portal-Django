@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report | Portal</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <style><!--#ee5253-->
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000000;
+            font-family: 'lato', sans-serif;
+            font-size: medium;
+            color: rgb(255, 255, 255)
+        }
+
+        ::selection{
+            background-color: #016d6d
+        }
+
+        .tabbed {
+            width: 700px;
+            margin: 30px auto;
+        }
+
+        .tabbed > input{
+            display:none;
+        }
+
+        .tabbed > label{
+            display: block;
+            float: left;
+            padding: 12px 20px;
+            margin-right: 5px;
+            cursor: pointer;
+            color: #818181;
+            transition: background-color 0.3s;
+        }
+
+        .tabbed > label:hover,
+        .tabbed > input:checked +label{
+            color: #05ebfc
+        }
+
+        .tabbed > label:hover{
+            color:azure
+        }
+
+        .tabs{
+            clear: both;
+            perspective: 600px;
+        }
+
+        .tabs > div{
+            width: 700px;
+            position: absolute;
+            border: 2px solid #05ebfc;
+            padding: 10px 40px 40px;
+            line-height: 1.4em;
+            opacity:0;
+            z-index:0;
+            transform: rotateX(-20deg);
+            transform-origin:top center;
+            transition: opacity 0.3s, transform 1s;
+        }
+
+        #tab_one:checked ~ .tabs > div:nth-of-type(1),
+        #tab_two:checked ~ .tabs > div:nth-of-type(2),
+        #tab_three:checked ~ .tabs > div:nth-of-type(3),
+        #tab_four:checked ~ .tabs > div:nth-of-type(4){
+            transform: rotateX(0deg);
+            opacity:1;
+            z-index:1;
+        }
+        
+
+        @media screen and (max-width:700px){
+            .tabbed{
+                width: 400px;
+            }
+            .tabbed > label{
+                display: none;
+            }
+            .tabs > div{
+                width: 400px;
+                border: none;
+                padding:0;
+                opacity:1;
+                position: relative;
+                transform: none;
+                margin-bottom: 10px;
+            }
+            .tabs > div h2{
+                border-bottom:2px solid #05d7fc;
+                padding-bottom: 0.5em;
+            }
+        }
+    </style>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+          {% if stu %}
+        var data = google.visualization.arrayToDataTable([
+        ['Results', 'ITW', 'IoT', 'Statistics','C language'],
+        ['Test 1 (20)', {{stu.ITW_marks_1}},{{stu.IoT_marks_2}}, {{stu.Stats_marks_1}}, {{stu.Clang_marks_1}}],
+        ['Test 2 (20)', {{stu.ITW_marks_2}}, {{stu.IoT_marks_2}}, {{stu.Stats_marks_2}}, {{stu.Clang_marks_2}}],
+        ['Test 3 (60)', {{stu.ITW_marks_3}}, {{stu.IoT_marks_3}}, {{stu.Stats_marks_3}}, {{stu.Clang_marks_3}}],
+        ]);
+
+        var options = {
+          chart: {
+            title: "Student's Performance",
+            subtitle: '2021-2022',
+          },
+          chartArea: {
+            backgroundColor: {
+            fill: '#000000',
+            fillOpacity: 0.1
+          }
+      },
+      backgroundColor: {
+        fill: '#000000',
+        fillOpacity: 0.8
+      }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+        {% endif %}
+      }
+    </script>
+</head>
+<body>
+    {% csrf_token %}
+    <div class="tabbed">
+        <input type="radio" name="tabs" id="tab_one" checked>
+        <label for="tab_one"><h4>Results</h4></label>
+
+        <input type="radio" name="tabs" id="tab_two" checked>
+        <label for="tab_two"><h4>Analysis</h4></label>
+
+        <input type="radio" name="tabs" id="tab_three" checked>
+        <label for="tab_three"><h4>Attendance</h4></label>
+
+        <input type="radio" name="tabs" id="tab_four" checked>
+        <label for="tab_four"><h4>Profile</h4></label>
+
+        <form class="d-flex" action="logout">
+          <button class="btn btn-outline-danger" type="submit" style=" margin-left: 80px; margin-top: 10px;"><B>Logout</B></button>
+        </form>
+        <div class="tabs">
+            {% if stu %}
+            <div>
+                <h3></h3>
+                <table class="table table-dark table-hover" style="width:80%; margin-left: 50px;">
+                    <thead>
+                        <tr>
+                            <th scope="col">Subjects</th>
+                            <th scope="col">Test 1(20)</th>
+                            <th scope="col">Test 2(20)</th>
+                            <th scope="col">Test 3(60)</th>
+                            <th scope="col">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">ITW</th>
+                            <td >{{stu.ITW_marks_1}}</td>
+                            <td >{{stu.ITW_marks_2}}</td>
+                            <td >{{stu.ITW_marks_3}}</td>
+                            <td id='ITWtot'>tot</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">IoT</th>
+                            <td >{{stu.IoT_marks_1}}</td>
+                            <td >{{stu.IoT_marks_2}}</td>
+                            <td >{{stu.IoT_marks_3}}</td>
+                            <td id='IOTtot'>tot</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Statistics</th>
+                            <td >{{stu.Stats_marks_1}}</td>
+                            <td >{{stu.Stats_marks_2}}</td>
+                            <td >{{stu.Stats_marks_3}}</td>
+                            <td id='STtot'>tot</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">C Language</th>
+                            <td >{{stu.Clang_marks_1}}</td>
+                            <td >{{stu.Clang_marks_2}}</td>
+                            <td >{{stu.Clang_marks_3}}</td>
+                            <td id='Ctot'>tot</td>
+                        </tr>
+                  
+                    </tbody>
+                </table>
+                <table class="table table-dark table-hover" style="width:25%; margin-left: 50px;">
+                    <tbody>
+                        <tr>
+                            <th scope="row">Total GPA:</th>
+                            <td id='GPA'>GPA</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Percentage:</th>
+                            <td id='Perc'>Percentage</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Result:</th>
+                            <td id='Res'>Result</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <center>
+                <div id="columnchart_material" style="width: 580px; height: 400px;"></div>
+                <center>
+            </div>
+            <div>
+                <h3></h3>
+                <table class="table table-dark table-hover" style="width:70%; margin-left: 50px;">
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col">Subjects</th>
+                            <th scope="col">Attendance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>ITW</td>
+                            <td>{{stu.ITW_attendance}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>IoT</td>
+                            <td>{{stu.IoT_attendance}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Statistics</td>
+                            <td>{{stu.Stats_attendance}}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">4</th>
+                            <td>C Language</td>
+                            <td>{{stu.Clang_attendance}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="table table-dark table-hover" style="width:45%; margin-left: 50px;">
+                    <tbody>
+                        <tr>
+                            <th scope="row">Overall Attendance:</th>
+                            <td id='Atttot'>Attendance</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div>
+                <h3></h3>
+                <table class="table table-dark table-hover" style="width:55%; margin-left: 50px;">
+                    <tbody>
+                        <tr>
+                            <td>id:</td>
+                            <td>{{stu.name}}</td>
+                        </tr>
+                        <tr>
+                            <td>Roll Number:</td>
+                            <td>{{stu.roll_number}}</td>
+                        </tr>
+                        <tr>
+                            <td>Branch:</td>
+                            <td>{{stu.branch}}</td>
+                        </tr>
+                        <tr>
+                            <td>E-mail</td>
+                            <td>{{stu.email}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <script>
+        var A1={{stu.ITW_marks_1}};
+        var A2={{stu.ITW_marks_2}};
+        var A3={{stu.ITW_marks_3}};
+        var C1={{stu.Stats_marks_1}};
+        var C2={{stu.Stats_marks_2}};
+        var C3={{stu.Stats_marks_3}};
+        var D1={{stu.Clang_marks_1}};
+        var D2={{stu.Clang_marks_2}};
+        var D3={{stu.Clang_marks_3}};
+        var B1={{stu.IoT_marks_1}};
+        var B2={{stu.IoT_marks_2}};
+        var B3={{stu.IoT_marks_3}};
+
+        document.getElementById('ITWtot').innerHTML=A1+A2+A3;
+        document.getElementById('IOTtot').innerHTML=B1+B2+B3;
+        document.getElementById('STtot').innerHTML=C1+C2+C3;
+        document.getElementById('Ctot').innerHTML=D1+D2+D3;
+        perc=((A1+A2+A3+B1+B2+B3+C1+C2+C3+D1+D2+D3)/4).toFixed(1)
+        document.getElementById('Perc').innerHTML=perc+'%'
+        document.getElementById('GPA').innerHTML=(perc/9.5).toFixed(1)
+        document.getElementById('Res').innerHTML="Pass"
+        document.getElementById('Atttot').innerHTML=(({{stu.ITW_attendance}}+{{stu.IoT_attendance}}+{{stu.Stats_attendance}}+{{stu.Clang_attendance}})/4).toFixed(1)+'%'
+    </script>
+
+
+</body>
+
+</html>

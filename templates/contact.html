@@ -1,0 +1,51 @@
+{% extends 'home.html' %}
+{% block title %}Contact us{% endblock title %}
+{% block home %}
+<li class="nav-item">
+<a class="nav-link active" aria-current="page" href="/">Home</a>
+</li>
+{% endblock home%}
+{% block login %}
+<form class="d-flex" action="/login">
+<button class="btn btn-outline-success" type="submit" style=" margin-right: 30px;"><B>Login</B></button>
+</form>
+{% endblock login %}
+{% block body %}
+<div class="container">
+<br><br>
+<div class="container-fluid" style=" margin-right: 50px;">
+<div class="backimg" style=" margin-right: 30px;">
+<div class="row" style=" margin-right: 170px;">
+<div class="col-md-4 col-sm-4 col-xs-12"></div>
+<div class="col-md-4 col-sm-4 col-xs-12">
+<div class="border-class1">
+<div class="mb-3">
+<h1 style="color: #F2F4F4; text-align:center">Contact Us</h1>
+<br>
+<center>
+<form style="width:400px;" method="post" action"/contact">
+{% csrf_token %}
+  <div class="form-group">
+    <label for="name" align="left"><font color="#ECF0F1" style=" margin-left: -200px;"><B>Name:</B></font></label>
+    <input type="text" class="form-control" id="name" name="name" placeholder="Enter Your Name">
+  </div><br>
+  <div class="form-group">
+    <label for="email" align="left"><font color="#ECF0F1" style=" margin-left: -200px;"><B>Email address:</B></font></label>
+    <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
+  </div><br>
+  <div class="form-group">
+    <label for="prob"><font color="#ECF0F1" style=" margin-left: -250px;"><B>Enter Your Message:</B></font></label>
+    <textarea class="form-control" id="prob" rows="3" name="prob"></textarea>
+  </div>
+  <p> </p>
+  <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+</center>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endblock body %}

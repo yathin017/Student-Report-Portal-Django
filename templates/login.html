@@ -1,0 +1,44 @@
+{% extends 'home.html' %}
+{% block title %}Login{% endblock title %}
+{% block home %}
+<li class="nav-item">
+<a class="nav-link active" aria-current="page" href="/">Home</a>
+</li>
+{% endblock home%}
+{% block login %}
+{% endblock login %}
+{% block body %}
+<div class="container">
+<br><br><br><br><br><br>
+<div class="container-fluid" style=" margin-right: 50px;">
+<div class="backimg" style=" margin-right: 30px;">
+<div class="row" style=" margin-right: -90px; ">
+<div class="col-md-4 col-sm-4 col-xs-12"></div>
+<div class="col-md-4 col-sm-4 col-xs-12">
+<div class="border-class2">
+<div class="mb-3">
+<form action="result" method="post">
+{% csrf_token %}
+<label for="username" class="form-label"><b><font color="#F4F6F7">Roll Number:</font></b></label>
+<input class="form-control form-control-sm" type='number'  id="username" name="username" placeholder="Roll Number"  aria-label=".form-control-sm example">
+<!--label for="password" class="form-label"><b><font color="#F4F6F7">Password:</font></b></label>
+<input class="form-control form-control-sm" type="password" id="password" name="password" placeholder="Password" aria-label=".form-control-sm example"!-->
+</div>
+<!--div class="mb-3 form-check">
+<input type="checkbox" class="form-check-input" id="exampleCheck1">
+<label class="form-check-label" for="exampleCheck1"><font color="#F4F6F7">Remember me</font></label>
+</div!-->
+<div class="d-grid gap-2">
+<center>                          
+<button class="btn btn-success" type="Submit" >Submit</button>
+</center>
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endblock body %}

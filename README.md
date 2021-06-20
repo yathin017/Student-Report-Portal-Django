@@ -22,7 +22,7 @@ python manage.py runserver
 ### __Login page__
 ![Screenshot (188)](https://user-images.githubusercontent.com/75620849/122664438-06531900-d1bf-11eb-925b-33e3a435d2ef.png)
 
-### __Details__
+### __Profile__
 ![Screenshot (197)](https://user-images.githubusercontent.com/75620849/122664649-4e267000-d1c0-11eb-8012-13d60e3ca251.png)
 
 ### __Attendance__

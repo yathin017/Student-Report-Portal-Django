@@ -1,6 +1,5 @@
 # Student-Report-Portal-Django
-### This is a Student Report Portal where the data is entered in the database and the student can check report using roll number for login.
-#### You can check this website for better understanding https://student-report-portal-django.herokuapp.com/ 
+### This is a Student Report Portal where the student's data is stored in the database and students can check their report using roll number for logging in, students can also use contact us page in case of any queries which will get stored in the database.
 
 #### Steps to use this website after downloading the code on your device:
 1) Activate your virtual env
@@ -8,4 +7,4 @@
 3) run: pip install -r requirements.txt in your shell
 4) run: python manage.py runserver
 
-#### For any queries students can also use contact us in the website
+#### You can check this website for better understanding https://student-report-portal-django.herokuapp.com/ 

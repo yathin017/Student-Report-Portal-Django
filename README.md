@@ -1,6 +1,6 @@
 # __Student-Report-Portal-Django__
 ### Student Portal website using Django
-#### This is a Student Report Portal where the student's data is stored in the database and students can check their report using roll number for logging in, students can also use contact us page in case of any queries which will get stored in the database.
+#### This is a Student Report Portal where the student's data is stored in the database and students can check their report using roll number for login, students can also use contact us page in case of any queries which will be stored in the database.
 
 ## Installation:
 1) Activate your virtual env

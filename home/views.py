@@ -4,8 +4,9 @@ from datetime import datetime
 from django.contrib import messages
 from django.contrib.auth.models import User, auth
 
+# Create your views here.
 
-
+# Calculation of Test Scores
 class Sum:
     def __init__(self,SITW,SIOT,SS,SClang):
         self.SITW=SITW
@@ -15,18 +16,18 @@ class Sum:
         self.Perc=(SClang+SIOT+SS+SITW)/400*100
         self.GPA=self.Perc/9.5*100
 
-
-# Create your views here.
-
+# Homepage
 def home(request):
     return render(request,'home.html')
 
+# Result Page
 def result(request):
     global stud
     x=int(request.POST['username'])
     stud=Student.objects.get(roll_number=x)
     return render(request,'result.html',{'stu':stud})
 
+# Login Page
 def login(request):
         if request.method == "POST":
             username = request.POST['username']
@@ -42,6 +43,7 @@ def login(request):
         else: 
             return render(request,'login.html')
 
+# Contact us
 def contact(request):
     if request.method == "POST":
         name = request.POST.get('name')
@@ -52,6 +54,7 @@ def contact(request):
         messages.success(request,"Your message has been sent!!!")
     return render(request,'contact.html')
 
+# For logging out
 def logout(request):
     messages.info(request,"Session Logged Out")
     return redirect('login')

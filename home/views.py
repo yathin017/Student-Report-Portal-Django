@@ -21,9 +21,6 @@ class Sum:
 def home(request):
     return render(request,'home.html')
 
-def graph(request):
-    return render(request,'graph.html')
-
 def result(request):
     global stud
     x=int(request.POST['username'])

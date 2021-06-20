@@ -16,25 +16,25 @@ python manage.py runserver
 
 ## Screenshots of the website:
 
-### Home page
+### __Home page__
 ![Screenshot (187)](https://user-images.githubusercontent.com/75620849/122664431-f6d3d000-d1be-11eb-9185-d4c9e1a046f1.png)
 
-### Login page
+### __Login page__
 ![Screenshot (188)](https://user-images.githubusercontent.com/75620849/122664438-06531900-d1bf-11eb-925b-33e3a435d2ef.png)
 
-### Details
+### __Details__
 ![Screenshot (197)](https://user-images.githubusercontent.com/75620849/122664649-4e267000-d1c0-11eb-8012-13d60e3ca251.png)
 
-### Attendance
+### __Attendance__
 ![Screenshot (190)](https://user-images.githubusercontent.com/75620849/122664444-11a64480-d1bf-11eb-8a55-3c205c7ee94c.png)
 
-### Analysis
+### __Analysis__
 ![Screenshot (191)](https://user-images.githubusercontent.com/75620849/122664456-208cf700-d1bf-11eb-9564-6de48d3ff4d1.png)
 
-### Result
+### __Result__
 ![Screenshot (192)](https://user-images.githubusercontent.com/75620849/122664462-271b6e80-d1bf-11eb-8f4b-c799cb98a040.png)
 
-### Contact us
+### __Contact us__
 ![Screenshot (194)](https://user-images.githubusercontent.com/75620849/122664467-2c78b900-d1bf-11eb-98e5-0fc24b7c0d85.png)
 
 ## Prerequisites

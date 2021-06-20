@@ -23,7 +23,7 @@ python manage.py runserver
 ![Screenshot (188)](https://user-images.githubusercontent.com/75620849/122664438-06531900-d1bf-11eb-925b-33e3a435d2ef.png)
 
 ### __Profile__
-![Screenshot (197)](https://user-images.githubusercontent.com/75620849/122664649-4e267000-d1c0-11eb-8012-13d60e3ca251.png)
+![image](https://user-images.githubusercontent.com/75620849/122678734-a59aff00-d205-11eb-85d3-f5ff9ee7c552.png)
 
 ### __Attendance__
 ![Screenshot (190)](https://user-images.githubusercontent.com/75620849/122664444-11a64480-d1bf-11eb-8a55-3c205c7ee94c.png)

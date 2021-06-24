@@ -58,3 +58,5 @@ def contact(request):
 def logout(request):
     messages.info(request,"Session Logged Out")
     return redirect('login')
+
+# The end

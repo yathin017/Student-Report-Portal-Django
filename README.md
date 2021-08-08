@@ -3,7 +3,7 @@
 #### This is a Student Report Portal where the student's data is stored in the database and students can check their report using roll number for login, students can also use contact us page in case of any queries which will be stored in the database.
 
 #### You may also check this website for better understanding https://student-report-portal-django.herokuapp.com/ 
-#### Try logging in with roll nos. 1,2 or 3
+#### Try logging in with roll nos. 1, 2 or 3
 
 ## Installation:
 1) Activate your virtual env

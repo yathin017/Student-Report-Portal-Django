@@ -2,6 +2,8 @@
 ### Student Portal website using Django
 #### This is a Student Report Portal where the student's data is stored in the database and students can check their report using roll number for login, students can also use contact us page in case of any queries which will be stored in the database.
 
+#### You may also check this website for better understanding https://student-report-portal-django.herokuapp.com/ 
+
 ## Installation:
 1) Activate your virtual env
 2) cd to the directory where requirements.txt is located
@@ -42,4 +44,4 @@ python manage.py runserver
 * __Django__
 * __HTML, CSS, JS__
 
-#### You may also check this website for better understanding https://student-report-portal-django.herokuapp.com/ 
+
